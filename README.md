@@ -10,10 +10,7 @@ Using this API, you can get a list of the user's public repositories on github a
 
 ### Installing
 
-* SSH: 
-git clone git@github.com:Vir2S/github_api.git
-* HTTPS: 
-git clone https://github.com/Vir2S/github_api.git
+* Clone or download repo
 * Put your TOKEN in config.py 
 * pip install -r requirements.txt
 
