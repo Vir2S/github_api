@@ -40,23 +40,22 @@ Sample output
   "repos": [
     "repo_1",
     "repo_2",
-    ...
   ]
 }
 ```
 POST issue to repo
 ```c
-curl -X POST http://127.0.0.1:5000/<GIT_USERNAME>/<GIT_REPONAME>/issue -H 'Content-Type:application/json' -d '{"title":"issue title","body":"test issue text"}'
+curl -X POST http://127.0.0.1:5000/<userame>/<repo_name>/issue -H 'Content-Type:application/json' -d '{"title":"issue title","body":"test issue text"}'
 ```
 Sample body for POST request from [GitHub Docs](https://docs.github.com/en/rest/issues/issues#create-an-issue)
 ```json
--d '{
+{
     "title": "Found a bug",
     "body": "I'm having a problem with this.",
     "assignees": ["octocat"],
     "milestone": 1,
     "labels": ["bug"]
-    }'
+}
 ```
 Sample output
 ```json
