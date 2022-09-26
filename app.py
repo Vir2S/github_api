@@ -36,24 +36,29 @@ def get_repos(username):
         }
     )
 
+
 @app.route("/<username>/<repo_name>/issue", methods=["POST"])
 def post_issue(username, repo_name):
-    if request.method == ["POST"]:
+    if request.method == "POST":
+        headers = {
+            'Authorization': f'Bearer {config.TOKEN}',
+            'Accept': 'application/vnd.github+json'
+        }
+
+        data = request.json
+
         r = requests.post(
             url=f"{config.URL}/repos/{username}/{repo_name}/issues",
-            json=(
-                {
-                    "title": "test issue title",
-                    "body": "test issue text"
-                }
-            )
+            json=data,
+            headers=headers
         )
-        print("\nr.status_code = ", r.status_code)
-        return jsonify(
-            {
-                "issue created": True
-            }
-        ), 201
+
+        if r.status_code == 201:
+            return jsonify(
+                {
+                    "issue created": True
+                }
+            ), 201
 
     return jsonify(
         {
